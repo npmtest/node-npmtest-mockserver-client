@@ -1,1 +1,40 @@
-{     "devDependencies": {         "mockserver-client": "*",         "electron-lite": "kaizhu256/node-electron-lite#alpha",         "utility2": "kaizhu256/node-utility2#alpha"     },     "name":"npmtest-mockserver-client",     "homepage": "https://github.com/npmtest/node-npmtest-mockserver-client",     "repository": {         "type": "git",         "url": "https://github.com/npmtest/node-npmtest-mockserver-client.git"     },     "scripts": {         "build-ci": "utility2 shReadmeTest build_ci.sh"     },     "version": "0.0.1" }
+{
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "description": "#### test coverage for  [mockserver-client (v1.0.12)](https://github.com/jamesdbloom/mockserver)  [![npm package](https://img.shields.io/npm/v/npmtest-mockserver-client.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-mockserver-client) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-mockserver-client.svg)](https://travis-ci.org/npmtest/node-npmtest-mockserver-client)",
+    "devDependencies": {
+        "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "mockserver-client": "*",
+        "utility2": "kaizhu256/node-utility2#alpha"
+    },
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmtest/node-npmtest-mockserver-client",
+    "keywords": [
+        "coverage",
+        "test",
+        "mockserver-client"
+    ],
+    "license": "MIT",
+    "main": "lib.npmtest_mockserver_client.js",
+    "name": "npmtest-mockserver-client",
+    "nameAlias": "npmtest_mockserver_client",
+    "nameOriginal": "npmtest-mockserver-client",
+    "os": [
+        "darwin",
+        "linux"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/npmtest/node-npmtest-mockserver-client.git"
+    },
+    "scripts": {
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "npm install \"kaizhu256/node-utility2#alpha\" && utility2 shDeployHeroku",
+        "postinstall": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh postinstall",
+        "start": "PORT=${PORT:-8080} utility2 start test.js",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
+    },
+    "version": "0.0.1"
+}
